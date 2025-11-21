@@ -17,11 +17,9 @@ METRICS = [
 
 def build_model(n_features):
      model = keras.Sequential([
-    Conv1D(16, 10, activation='relu', input_shape=(52, n_features)),
-    Conv1D(32, 3, activation='relu'),
-    Conv1D(64, 3, activation='relu'),
- 
-    Flatten(),
+     Input(shape=(52, n_features)),
+     LSTM(128, return_sequences=False),
+
     Dense(1, activation='sigmoid')
 ])
      
